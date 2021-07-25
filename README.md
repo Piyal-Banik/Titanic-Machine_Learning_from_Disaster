@@ -27,7 +27,6 @@ Use machine learning to create a model that predicts which passengers survived t
 - Evaluation
 
 
-  
 ## Libraries used
 
 - Numpy
@@ -68,4 +67,53 @@ We are given two datasets both of which are CSV files, one for training our mode
 
 This step is part of Exploratory Data Analysis
 
-We started off finding out the
+There are 891 observations in the training dataset with each having 12 columns. 11 of them are predictor variables and 1 being target variable.
+
+There are few different types of variables available.
+
+- Continous: Age, Fare
+- Discrete: SibSp, Parch
+- Categorical: Survived, Sex, and Embarked
+- Ordinal: Pclass
+- Mixed: Ticket
+- Alphanumeric: Cabin
+
+There were 3 features having missing values.
+- Cabin
+- Age
+- Embarked
+
+Cabin has way too many missing values and hence it is better to drop.
+
+As per the training dataset, there were more male present compared to female and most of the people didnot survive.
+But females had better survival rate than males. It was also found out that survived passengers had paid more fare 
+than the ones that did not survive. At the same time Pclass = 1 had better survival rate than the rest 2 classes.
+
+Majority of the passengers were between the age group 15-35 but most of them didnot survived. Children aged < 4 and old aged people had higher survival rate.
+
+## Data Preparation / Feature Engineering
+After closely looking into the dataset, variables types, values,
+ amount of missing values present, I have decided to
+- Impute the missing Age values
+- Turn age into an ordinal feature
+- Impute the missing Embarked values
+- Drop Cabin [too many missing values]
+- Drop Ticket [many duplicates]
+- Drop PassengerID, Name, SibSp, Parch [not helpful]
+
+I also performed some feature engineering as there are few categorical variables present.
+Created Dummy Variables for 
+- Sex 
+- Embarked
+
+## Modeling
+Models trained
+- Logistic Regression
+- k-Nearest Neighbors
+- Support Vector Machines
+- Naive Bayes classifier
+- Decision Tree
+- Random Forest
+
+## Evaluation
+Decision Tree and Random Forest achieved the maximum accuracy of 93.03%. 
